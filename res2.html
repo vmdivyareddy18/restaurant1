@@ -152,6 +152,26 @@
     <h2>Your Cart</h2>
     <ul id="cart"></ul>
 
+    <script>
+        let reserved = false;
+
+        function reserveTable() {
+            reserved = true;
+            alert("Table Reserved! Now you can add dishes.");
+        }
+
+        function addToCart(dish) {
+            if (!reserved) {
+                alert("Please reserve a table first!");
+                return;
+            }
+
+            let cart = document.getElementById("cart");
+            let li = document.createElement("li");
+            li.textContent = dish;
+            cart.appendChild(li);
+        }
+    </script>
 
 </body>
 
