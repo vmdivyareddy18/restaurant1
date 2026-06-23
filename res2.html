@@ -89,7 +89,7 @@
             <td>Delicious cheese pizza with fresh toppings.</td>
             <td>$10.99</td>
             <td>
-                <button onclick="addToCart('Pizza')">Add</button>
+                <button onclick="addToCart('Pizza',10.99)">Add</button>
             </td>
         </tr>
 
@@ -98,7 +98,7 @@
             <td>Juicy beef burger with lettuce, tomato, and cheese.</td>
             <td>$8.99</td>
             <td>
-                <button onclick="addToCart('Burger')">Add</button>
+                <button onclick="addToCart('Burger',8.99)">Add</button>
             </td>
         </tr>
         <tr>
@@ -106,7 +106,7 @@
             <td>Classic Italian pasta with marinara sauce.</td>
             <td>$12.99</td>
             <td>
-                <button onclick="addToCart('Pasta')">Add</button>
+                <button onclick="addToCart('Pasta',12.99)">Add</button>
             </td>
         </tr>
         <tr>
@@ -114,69 +114,39 @@
             <td>Fresh garden salad with your choice of dressing.</td>
             <td>$7.99</td>
             <td>
-                <button onclick="addToCart('Salad')">Add</button>
+                <button onclick="addToCart('Salad',7.99)">Add</button>
             </td>
         </tr>
     </table>
-<h1>Welcome to My Restaurant</h1>
-    <p>Enjoy our delicious food!</p>
-    <p>We offer a variety of dishes to satisfy your taste buds.</p>
-        <table>
-            <tr>
-                <th>Dish Name</th>
-                <th>Description</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>Pizza</td>
-                <td>Delicious cheese pizza with fresh toppings.</td>
-                <td>$10.99</td>
-            </tr>
-            <tr>
-                <td>Burger</td>
-                <td>Juicy beef burger with lettuce, tomato, and cheese.</td>
-                <td>$8.99</td>
-            </tr>
-            <tr>
-                <td>Pasta</td>
-                <td>Classic Italian pasta with marinara sauce.</td>
-                <td>$12.99</td>
-            </tr>
-            <tr>
-                <td>Salad</td>
-                <td>Fresh garden salad with your choice of dressing.</td>
-                <td>$7.99</td>
-            </tr>
-        </table>
     <div class="card">
         <h4>Special Dish</h4>
         <p>Try our chef's special for the day!</p>
         <p>Omlette ostroid</p>
-        <button onclick="addToCart('Omlette ostroid')">Add</button>
+        <button onclick="addToCart('Omlette ostroid',15.4)">Add</button>
     </div>
     <div class="card">
         <h4>New Dish</h4>
         <p>Introducing our latest addition to the menu!</p>
         <p>Grilled Salmon with Lemon Butter Sauce</p>
-        <button onclick="addToCart('Grilled Salmon with Lemon Butter Sauce')">Add</button>
+        <button onclick="addToCart('Grilled Salmon with Lemon Butter Sauce',20.45)">Add</button>
     </div>
     <div class="card">
         <h4>Chef's Recommendation</h4>
         <p>Our chef highly recommends this dish for a delightful experience.</p>
         <p>Truffle Risotto with Parmesan Cheese</p>
-        <button onclick="addToCart('Truffle Risotto with Parmesan Cheese')">Add</button>
+        <button onclick="addToCart('Truffle Risotto with Parmesan Cheese',32.23)">Add</button>
     </div>
     <div class="card">
         <h4>Seasonal Special</h4>
         <p>Enjoy the flavors of the season with our special dish.</p>
         <p>Butternut Squash Soup with Sage</p>
-        <button onclick="addToCart('Butternut Squash Soup with Sage')">Add</button>
+        <button onclick="addToCart('Butternut Squash Soup with Sage',14.5)">Add</button>
     </div>
     <div class="card">
         <h4>Vegetarian Delight</h4>
         <p>A delicious vegetarian option for our guests.</p>
         <p>Stuffed Bell Peppers with Quinoa and Black Beans</p>
-        <button onclick="addToCart('Stuffed Bell Peppers with Quinoa and Black Beans')">Add</button>
+        <button onclick="addToCart('Stuffed Bell Peppers with Quinoa and Black Beans',23.43)">Add</button>
     </div>
     <button onclick="reserveTable()">Reserve a Table</button>
     <h2>Your Cart</h2>
@@ -202,8 +172,35 @@
             cart.appendChild(li);
         }
     </script>
+
     </div>
-            <button class="btn">Reserve a Table</button>
+    <h2>Bill</h2>
+    <div id="bill"></div>
+    <button onclick="showBill()">Go to Bill</button>
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+        }
+
+        function showBill() {
+            let billDiv = document.getElementById("bill");
+
+            let total = 0;
+            let output = "<ul>";
+
+            cart.forEach(item => {
+                output += "<li>" + item.name + " - $" + item.price + "</li>";
+                total += item.price;
+            });
+
+            output += "</ul>";
+            output += "<h3>Total = $" + total + "</h3>";
+
+            billDiv.innerHTML = output;
+        }
+    </script>
 
 </body>
 
