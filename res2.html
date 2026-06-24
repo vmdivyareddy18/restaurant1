@@ -65,6 +65,34 @@
         padding: 10px;
         text-align: left;
     }
+#billBox {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#billBox h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
 </style>
 
 <body>
@@ -175,31 +203,46 @@
 
     </div>
     <h2>Bill</h2>
-    <div id="bill"></div>
-    <button onclick="showBill()">Go to Bill</button>
+
+    <div id="billBox">
+        <h3>Restaurant Invoice</h3>
+
+        <div id="billItems"></div>
+
+        <div class="total">
+            <span>Total:</span>
+            <span id="totalAmount">$0</span>
+        </div>
+
+        <button onclick="showBill()">Generate Bill</button>
+    </div>
     <script>
-        let cart = [];
+            let cart = [];
 
-        function addToCart(name, price) {
-            cart.push({ name, price });
-        }
+            function addToCart(name, price) {
+                cart.push({ name, price });
+}
 
-        function showBill() {
-            let billDiv = document.getElementById("bill");
+            function showBill() {
+                let itemsDiv = document.getElementById("billItems");
+            let totalDiv = document.getElementById("totalAmount");
 
             let total = 0;
-            let output = "<ul>";
+            let html = "";
 
-            cart.forEach(item => {
-                output += "<li>" + item.name + " - $" + item.price + "</li>";
-                total += item.price;
-            });
+    cart.forEach(item => {
+                html += `
+            <div class="bill-row">
+                <span>${item.name}</span>
+                <span>$${item.price}</span>
+            </div>
+        `;
+            total += item.price;
+    });
 
-            output += "</ul>";
-            output += "<h3>Total = $" + total + "</h3>";
-
-            billDiv.innerHTML = output;
-        }
+            itemsDiv.innerHTML = html;
+            totalDiv.textContent = "$" + total;
+}
     </script>
 
 </body>
