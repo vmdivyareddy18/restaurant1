@@ -103,7 +103,6 @@
         padding: 10px;
         text-align: left;
     }
-<<<<<<< HEAD
 
     .hero img {
         width: 100%;
@@ -131,36 +130,6 @@
     #preview {
         pointer-events: none;
     }
-=======
-#billBox {
-    width: 300px;
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-#billBox h3 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.bill-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
-    border-bottom: 1px dashed #ccc;
-}
-
-.total {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 18px;
-}
->>>>>>> 44e9f7cd9f6e505816742c7154b561be4803ae92
 </style>
 
 <body>
@@ -295,7 +264,6 @@
                 return;
             }
 
-<<<<<<< HEAD
             cart.push({ name, price });
 
             let cartList = document.getElementById("cart");
@@ -307,40 +275,6 @@
         /* ✅ Show Bill */
         function showBill() {
             let billDiv = document.getElementById("bill");
-=======
-            let cart = document.getElementById("cart");
-            let li = document.createElement("li");
-            li.textContent = dish;
-            cart.appendChild(li);
-        }
-    </script>
-
-    </div>
-    <h2>Bill</h2>
-
-    <div id="billBox">
-        <h3>Restaurant Invoice</h3>
-
-        <div id="billItems"></div>
-
-        <div class="total">
-            <span>Total:</span>
-            <span id="totalAmount">$0</span>
-        </div>
-
-        <button onclick="showBill()">Generate Bill</button>
-    </div>
-    <script>
-            let cart = [];
-
-            function addToCart(name, price) {
-                cart.push({ name, price });
-}
-
-            function showBill() {
-                let itemsDiv = document.getElementById("billItems");
-            let totalDiv = document.getElementById("totalAmount");
->>>>>>> 44e9f7cd9f6e505816742c7154b561be4803ae92
 
             let total = 0;
             let html = "";
@@ -355,18 +289,11 @@
             total += item.price;
     });
 
-<<<<<<< HEAD
             output += "</ul>";
             output += "<h3>Total = $" + total + "</h3>";
 
             billDiv.innerHTML = output;
         }
-=======
-            itemsDiv.innerHTML = html;
-            totalDiv.textContent = "$" + total;
-}
-    </script>
->>>>>>> 44e9f7cd9f6e505816742c7154b561be4803ae92
 
         /* ✅ Run AFTER page loads */
         window.onload = function () {
