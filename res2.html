@@ -277,12 +277,17 @@
             let billDiv = document.getElementById("bill");
 
             let total = 0;
-            let output = "<ul>";
+            let html = "";
 
-            cart.forEach(item => {
-                output += "<li>" + item.name + " - $" + item.price + "</li>";
-                total += item.price;
-            });
+    cart.forEach(item => {
+                html += `
+            <div class="bill-row">
+                <span>${item.name}</span>
+                <span>$${item.price}</span>
+            </div>
+        `;
+            total += item.price;
+    });
 
             output += "</ul>";
             output += "<h3>Total = $" + total + "</h3>";
