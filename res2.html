@@ -130,6 +130,79 @@
     #preview {
         pointer-events: none;
     }
+h1 {
+    font-size: 36px;
+    margin-top: 20px;
+}
+table {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+table td, table th {
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+}
+button {
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+#bgVideo {
+    position: fixed;
+    width: 100%;
+    height: 110%;
+    object-fit: fill; /* 🔥 stretches to fit */
+    z-index: -2;
+}body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.4); /* lighter */
+
+    z-index: -1;
+}
+
+/* 🔥 CLEAN TEXT (remove ugly grey boxes) */
+h1, p {
+    background: transparent !important;
+    color: white;
+}
+
+/* 🔥 TABLE IMPROVED */
+table {
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+table th {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* 🔥 PREMIUM CARDS */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    color: white;
+}
+
+/* 🔥 GENERAL TEXT COLOR */
+body {
+    color: white;
+}
 </style>
 
 <body>
@@ -140,6 +213,9 @@
             <li><a href="about.html">About Us</a></li>
         </ul>
     </nav>
+    <video autoplay muted loop id="bgVideo">
+    <source src="clip.mp4" type="video/mp4">
+</video>
     <div id="preview">
         <img id="previewImg">
     </div>
