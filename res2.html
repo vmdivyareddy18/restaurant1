@@ -203,6 +203,104 @@ table th {
 body {
     color: white;
 }
+/* 🔥 FULL WIDTH CENTER BUTTON */
+.reserve-btn,
+.bill-btn {
+    display: block;
+    width: 90%;
+    margin: 20px auto;   /* center horizontally */
+    padding: 15px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+
+    border-radius: 10px;
+}
+
+/* Optional styling difference */
+.reserve-btn {
+    background-color: #4CAF50;
+}
+
+.bill-btn {
+    background-color: #2196F3;
+}
+.bill-btn:hover {
+    transform: scale(1.03);
+}
+/* 🔥 Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300&display=swap');
+
+/* 🔥 HERO CONTAINER */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 300px; /* same as your banner */
+    overflow: hidden;
+}
+
+/* 🔥 VIDEO BACKGROUND */
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* 🔥 DARK OVERLAY (important for readability) */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* 🔥 TEXT OVER VIDEO */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+/* 🔥 MAIN TITLE */
+.hero-text h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 64px;
+    color: #f5e6c8;
+    margin: 0;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+}
+
+/* 🔥 SUB TEXT */
+.hero-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #ddd;
+    margin-top: 10px;
+}
+
+/* 🔥 OPTIONAL FADE ANIMATION */
+.hero-text {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
 </style>
 
 <body>
@@ -222,9 +320,16 @@ body {
     <div class="hero">
         <img src="res.png" alt="Restaurant Banner">
     </div>
-    <h1>Welcome to My Restaurant</h1>
-    <p>Enjoy our delicious food!</p>
-    <p>We offer a variety of dishes to satisfy your taste buds.</p>
+    <div class="hero">
+
+    <!-- 🔥 TEXT ON TOP -->
+    <div class="hero-text">
+        <h1>Experience Fine Dining</h1>
+        <p>Fresh ingredients. Elegant atmosphere. Unforgettable taste.</p>
+    </div>
+
+</div>
+
     <table>
         <tr>
             <th>Dish Name</th>
@@ -316,14 +421,10 @@ body {
         <p>Stuffed Bell Peppers with Quinoa and Black Beans</p>
         <button onclick="addToCart('Stuffed Bell Peppers with Quinoa and Black Beans',23.43)">Add</button>
     </div>
-    <button onclick="reserveTable()">Reserve a Table</button>
-    <h2>Your Cart</h2>
-    <ul id="cart"></ul>
-    <h2>Bill</h2>
+<button class="reserve-btn" onclick="reserveTable()">Reserve a Table</button>    <ul id="cart"></ul>
     <div id="bill" style="border:1px solid #ccc; padding:10px; margin-top:10px;"></div>
 
-    <button onclick="showBill()">Go to Bill</button>
-    <script>
+<button class="bill-btn" onclick="showBill()">Go to Bill</button>    <script>
         let reserved = false;
         let cart = [];
 
@@ -424,7 +525,7 @@ body {
                 img.style.display = "none";
             }
         });
-        
+    
     </script>
 </body>
 
