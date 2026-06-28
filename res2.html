@@ -390,6 +390,110 @@ nav {
     body {
     margin: 0;
 }
+/* 🔥 CARD ROW */
+.cards-container {
+    display: flex;
+    gap: 50px;
+    padding: 30px;
+    overflow-x: auto;
+}
+
+/* 🔥 CARD BASE */
+.card {
+     background: #1e1e1e;
+    color: rgb(177, 176, 166);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    width: 260px;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.9),
+                0 0 15px rgba(212,175,55,0.3);
+    transform: translateY(-6px);
+}
+
+/* 🔥 IMAGE */
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* 🔥 CONTENT */
+.card-content {
+    padding: 12px 14px;
+}
+
+/* Title */
+.card h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Description */
+.card p {
+    font-size: 13px;
+    color: #555;
+}
+
+/* 🔥 BOTTOM ROW */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Price */
+.price {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* 🔥 BUTTON */
+.card button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card button:hover {
+    background: #388e3c;
+}
+/* Tag (small highlight text) */
+.tag {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 3px;
+}
+
+/* Description */
+.desc {
+    font-size: 13px;
+    color: #555;
+}
+
+/* Bottom row */
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Price */
+.price {
+    font-weight: bold;
+    font-size: 14px;
+}
 </style>
 
 <body>
@@ -476,45 +580,84 @@ nav {
             </td>
         </tr>
     </table>
-    <div class="menu-image">
-    </div>
+    <div class="cards-container">
+
+    <!-- CARD 1 -->
     <div class="card">
-        <img src="om.png"
-            style=" vertical-align:middle;width:80px; height:80px; object-fit:cover; vertical-align:middle; margin-right:10px;">
-        <p>Try our chef's special for the day!</p>
-        <p>Omlette ostroid</p>
-        <button onclick="addToCart('Omlette ostroid',15.4)">Add</button>
+        <img src="om.png">
+        <div class="card-content">
+            <h4>Omlette Ostroid</h4>
+            <p class="tag">Chef's Special</p>
+            <p class="desc">Try our chef's special for the day.</p>
+
+            <div class="card-bottom">
+                <span class="price">$15.4</span>
+                <button onclick="addToCart('Omlette ostroid',15.4)">Add</button>
+            </div>
+        </div>
     </div>
+
+    <!-- CARD 2 -->
     <div class="card">
-        <img src="salmo.png"
-            style="width:80px; height:80px; object-fit:cover; vertical-align:middle; margin-right:10px;">
-        <p>Introducing our latest addition to the menu!</p>
-        <p>Grilled Salmon with Lemon Butter Sauce</p>
-        <button onclick="addToCart('Grilled Salmon with Lemon Butter Sauce',20.45)">Add</button>
+        <img src="salmo.png">
+        <div class="card-content">
+            <h4>Grilled Salmon</h4>
+            <p class="tag">New Arrival</p>
+            <p class="desc">Served with lemon butter sauce.</p>
+
+            <div class="card-bottom">
+                <span class="price">$20.45</span>
+                <button onclick="addToCart('Grilled Salmon with Lemon Butter Sauce',20.45)">Add</button>
+            </div>
+        </div>
     </div>
+
+    <!-- CARD 3 -->
     <div class="card">
-        <img src="tru.png" style="width:80px; height:80px; object-fit:cover; vertical-align:middle; margin-right:10px;">
-        <h4>Chef's Recommendation</h4>
-        <p>Our chef highly recommends this dish for a delightful experience.</p>
-        <p>Truffle Risotto with Parmesan Cheese</p>
-        <button onclick="addToCart('Truffle Risotto with Parmesan Cheese',32.23)">Add</button>
+        <img src="tru.png">
+        <div class="card-content">
+            <h4>Truffle Risotto</h4>
+            <p class="tag">Chef's Recommendation</p>
+            <p class="desc">Rich parmesan cheese flavor.</p>
+
+            <div class="card-bottom">
+                <span class="price">$32.23</span>
+                <button onclick="addToCart('Truffle Risotto with Parmesan Cheese',32.23)">Add</button>
+            </div>
+        </div>
     </div>
+
+    <!-- CARD 4 -->
     <div class="card">
-        <img src="soup.png"
-            style="width:80px; height:80px; object-fit:cover; vertical-align:middle; margin-right:10px;">
-        <h4>Seasonal Special</h4>
-        <p>Enjoy the flavors of the season with our special dish.</p>
-        <p>Butternut Squash Soup with Sage</p>
-        <button onclick="addToCart('Butternut Squash Soup with Sage',14.5)">Add</button>
+        <img src="soup.png">
+        <div class="card-content">
+            <h4>Butternut Squash Soup</h4>
+            <p class="tag">Seasonal Special</p>
+            <p class="desc">Warm, creamy, and full of flavor.</p>
+
+            <div class="card-bottom">
+                <span class="price">$14.5</span>
+                <button onclick="addToCart('Butternut Squash Soup with Sage',14.5)">Add</button>
+            </div>
+        </div>
     </div>
+
+    <!-- CARD 5 -->
     <div class="card">
-        <img src="bell.png"
-            style="width:80px; height:80px; object-fit:cover; vertical-align:middle; margin-right:10px;">
-        <h4>Vegetarian Delight</h4>
-        <p>A delicious vegetarian option for our guests.</p>
-        <p>Stuffed Bell Peppers with Quinoa and Black Beans</p>
-        <button onclick="addToCart('Stuffed Bell Peppers with Quinoa and Black Beans',23.43)">Add</button>
+        <img src="bell.png">
+        <div class="card-content">
+            <h4>Stuffed Bell Peppers</h4>
+            <p class="tag">Vegetarian Delight</p>
+            <p class="desc">Quinoa & black beans filling.</p>
+
+            <div class="card-bottom">
+                <span class="price">$23.43</span>
+                <button onclick="addToCart('Stuffed Bell Peppers with Quinoa and Black Beans',23.43)">Add</button>
+            </div>
+        </div>
     </div>
+
+</div>
     <ul id="cart"></ul>
     <div id="bill" style="border:1px solid #ccc; padding:10px; margin-top:10px;"></div>
 
