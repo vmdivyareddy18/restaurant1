@@ -209,17 +209,133 @@ nav {
         background: transparent !important;
         color: white;
     }
+table {
+    background: transparent;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
 
-    /* 🔥 TABLE IMPROVED */
-    table {
-        background: rgba(0, 0, 0, 0.4);
-        color: white;
-    }
+table tr {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    transition: 0.3s;
+}
 
-    table th {
-        background: rgba(0, 0, 0, 0.7);
-    }
+table td, table th {
+    border: none;
+    padding: 14px;
+}
 
+table tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.01);
+}
+body::after {
+    background: rgba(0, 0, 0, 0.6); /* darker than before */
+}
+table button {
+    background: linear-gradient(135deg, #4CAF50, #66bb6a);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+table button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+}
+table {
+    width: 95%;
+    margin: 30px auto;
+}
+.card {
+    background: rgba(255,255,255,0.08); /* 🔥 darker */
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 12px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+/* hover lift */
+.card:hover {
+    transform: translateY(-8px);
+}
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+
+    transition: 0.3s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+.cards-container {
+    margin-top: 50px;
+    padding: 0 20px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+}
+button {
+    background: rgba(78, 186, 82, 0.9);
+    
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #e1dd8f, #e3bc86);
+    transform: scale(1.08);
+}
+table::after {
+    content: "";
+    display: block;
+    margin: 30px auto;
+    width: 90%;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+}
+.menu-divider {
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+.menu-divider h2 {
+    font-size: 28px;
+    color: #f5e6c8;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.menu-divider p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* optional elegant line */
+.menu-divider::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin: 15px auto 0;
+}
     /* 🔥 PREMIUM CARDS */
     .card {
         background: rgba(255, 255, 255, 0.1);
@@ -466,7 +582,8 @@ nav {
 }
 
 .card button:hover {
-    background: #388e3c;
+    background: linear-gradient(135deg, #e1dd8f, #e3bc86);
+    
 }
 /* Tag (small highlight text) */
 .tag {
@@ -580,6 +697,10 @@ nav {
             </td>
         </tr>
     </table>
+    <div class="menu-divider">
+    <h2>Chef’s Specials</h2>
+    <p>Handpicked dishes crafted for a premium dining experience</p>
+</div>
     <div class="cards-container">
 
     <!-- CARD 1 -->
